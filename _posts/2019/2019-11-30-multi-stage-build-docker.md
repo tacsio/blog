@@ -16,10 +16,61 @@ Estudando mais a fundo Multi-Stage Builds, é possível unificar os famosos Dock
 ## Chega de blá-blá-blá e Mãos à Obra
 
 Primeiro vamos criar uma API bem simples:
-{% gist a6f9adc8cc0d19d2f66e7ffed752e941 %}
+```Java
+package com.example.demo;
+
+import lombok.Builder;
+import lombok.Data;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
+}
+
+@RestController
+class DemoController{
+	@GetMapping(value = "/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity hello(@PathVariable("name") String name) {
+		String msg = String.format("May the Force by with you, %s", StringUtils.capitalize(name));
+		return ResponseEntity.ok(JediResponse.builder().msg(msg).build());
+	}
+}
+
+@Data
+@Builder
+class JediResponse {
+	private String msg;
+}
+```
 
 E montar o Dockerfile para compilar e gerar o .Jar executável, para depois montar a imagem de execução da aplicação.
-{% gist ab166223c320310715cb7cd3c6e06329 %}
+
+```Dockerfile
+# build environment
+FROM gradle:jdk8 as build
+WORKDIR /compile
+COPY . /compile
+RUN gradle build --no-daemon
+
+#production environment
+FROM openjdk:8-jdk-alpine
+WORKDIR /app
+VOLUME /tmp
+COPY --from=build /compile/build/libs/demo-0.0.1-SNAPSHOT.jar api.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app/api.jar"]
+```
 
 Beleza, mas o que está acontecendo aqui?
 1. Marcarmos a imagem do gradle:jdk8 com um 'label' de build
@@ -35,7 +86,7 @@ Beleza, mas o que está acontecendo aqui?
 
 Particularmente eu achei um pouco lenta a utilização do multi-stage no caso especifico do Spring Boot. Isso porque o build com Gradle do Spring em containers Docker é um pouco demorado (tem que baixar a internet todas as vezes e tal).
 
-Em outras stacks é bem mais tranquilo. Build de aplicações React para produção + Nginxé o sucesso!
+Em outras stacks é bem mais tranquilo. Build de aplicações React para produção + Nginx é o sucesso!
 
 
 [[1] - Multi-Stage Build Docker][Docker-MultiStage]
