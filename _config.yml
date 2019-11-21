@@ -1,7 +1,7 @@
 # Website details
 name: 1 Post por Ano
-description: Description
-email: email@site.com
+description: A arte de demorar 1 ano para postar algo
+email: tacsio@hotmail.com
 author: tacsio
 lang: en
 locale: en_US
@@ -15,7 +15,7 @@ timezone: America/Recife
 paginateLabel: page
 paginate_path: "page/:num"
 permalink: /:categories/:year/:month/:day/:title
-baseurl: https://tacsio.github.io/
+baseurl: https://tacsio.github.io
 
 # Includes
 addthisId: ""
