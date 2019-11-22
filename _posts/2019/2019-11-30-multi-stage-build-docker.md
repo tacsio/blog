@@ -5,13 +5,13 @@ date: 2019-11-20 21:33:00-0300
 coverPhoto: https://tacsio.github.io/contents/images/2019/docker-boot.png
 ---
 
-Então surge a ideia, utilizar o multi-stage build do Docker para embutir na criação da imagem a compilação e geração do 'executável' do Spring Boot, e as etapas para execução de fato da aplicação.
+Então surge a ideia, utilizar o Multi-Stage Build do Docker para, na criação da imagem, incluir: compilação, geração do 'executável' Spring Boot e execução da aplicação.
 
 ![cover][cover]
 
-Em diversos tutoriais na internet, inclusive o pra própria [Pivotal][Pivotal], sempre vejo a necessidade de "existir" o .jar da aplicação já 'buildado'. Mas isso não é necessariamente interessante caso eu queira uma forma, mesmo em ambiente de desenvolvimento, realizar todo processo de compilação e 'startup' da minha aplicação.
+Em diversos tutoriais na internet, inclusive o da própria [Pivotal][Pivotal], sempre vejo a necessidade de "existir" o .jar da aplicação já 'buildado'. Mas isso não é interessante caso eu queira uma forma, mesmo em ambiente de desenvolvimento, realizar todo processo de compilação e 'startup' da minha aplicação.
 
-Estudando mais a fundo Multi-Stage Builds, é possível unificar os famosos Dockerfile.build (para instruções estritamente de build da aplicação) com o Dockerfile utilizado para ambientes de produção.
+Estudando mais a fundo [Multi-Stage Builds][Docker-MultiStage], é possível unificar os famosos Dockerfile.build (para instruções estritamente de build da aplicação) com o Dockerfile utilizado para ambientes de produção.
 
 ## Chega de blá-blá-blá e Mãos à Obra
 
@@ -72,7 +72,8 @@ EXPOSE 8080
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app/api.jar"]
 ```
 
-Beleza, mas o que está acontecendo aqui?
+## Beleza, mas o que está acontecendo aqui?
+
 1. Marcarmos a imagem do gradle:jdk8 com um 'label' de build
 2. Montamos nosso ambiente de para o build da aplicação (copiando arquivos do projeto)
 3. Como utilizei o gradle, basta executar o comando para gerar o build da aplicação (aqui também poderíamos parametrizar o docker file com ARG e utilizar os profiles do Spring)
@@ -84,12 +85,10 @@ Beleza, mas o que está acontecendo aqui?
 
 ## Considerações Finais
 
-Particularmente eu achei um pouco lenta a utilização do multi-stage no caso especifico do Spring Boot. Isso porque o build com Gradle do Spring em containers Docker é um pouco demorado (tem que baixar a internet todas as vezes e tal).
+Particularmente eu achei um pouco lenta a geração da imagem com Multi-Stage no caso especifico do Spring Boot. Isso porque o build com Gradle de aplicações Spring em containers Docker é um pouco demorado (tem que baixar a internet todas as vezes e tal).
 
 Em outras stacks é bem mais tranquilo. Build de aplicações React para produção + Nginx é o sucesso!
 
-
-[[1] - Multi-Stage Build Docker][Docker-MultiStage]
 
 [cover]: https://tacsio.github.io/contents/images/2019/docker-boot.png
 [gif]: https://tacsio.github.io/contents/images/2019/docker-boot.gif
