@@ -20,7 +20,7 @@ baseurl: https://tacsio.github.io
 # Includes
 addthisId: ""
 disqusUsername: ""
-googleAnalyticsId: ""
+googleAnalyticsId: "UA-153069019-1"
 
 # Search engine verifications
 bing: ""

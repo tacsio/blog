@@ -24,7 +24,7 @@ layout: default
 
         <!-- Article image with aspect ratio -->
         <a href="{{ site.baseurl }}{{ post.url }}" class="ar-container">
-          <img class="ar-content" src="{{ post.coverPhoto }}" style="width: 100%; margin-left: auto !important;" />
+          <span class="ar-content" style="width: 100%; margin-left: auto !important; background-image: url('{{ post.coverPhoto }}'); background-size: contain; background-repeat: no-repeat;"></span>
         </a><!-- .ar-container -->
 
       {% endif %}
