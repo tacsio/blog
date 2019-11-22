@@ -14,8 +14,12 @@ plugins: [jekyll-paginate]
 timezone: America/Recife
 paginateLabel: page
 paginate_path: "page/:num"
-permalink: /:categories/:year/:month/:day/:title
+permalink: /:categories/:year/:title
 baseurl: https://tacsio.github.io
+
+#rss
+url: https://tacsio.github.io
+rss_name: feed.xml
 
 # Includes
 addthisId: ""
