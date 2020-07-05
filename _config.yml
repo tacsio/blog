@@ -40,3 +40,5 @@ sitemap:
     - "/index.html"
   change_frequency_name: "daily"
   priority_name: "1.00"
+
+theme: jekyll-theme-cayman
