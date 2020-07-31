@@ -2,7 +2,7 @@
 layout: article
 title: Multi-Stage Build Docker + Spring Boot
 date: 2019-11-21 21:33:00-0300
-coverPhoto: https://tacsio.github.io/contents/images/2019/docker-boot.png
+coverPhoto: https://tacsio.github.io/blog/contents/images/2019/docker-boot.png
 ---
 
 Então surge a ideia, utilizar o Multi-Stage Build do Docker para, na criação da imagem, incluir: compilação, geração do 'executável' Spring Boot e execução da aplicação.
@@ -90,8 +90,8 @@ Particularmente eu achei um pouco lenta a geração da imagem com Multi-Stage no
 Em outras stacks é bem mais tranquilo. Build de aplicações React para produção + Nginx é o sucesso!
 
 
-[cover]: https://tacsio.github.io/contents/images/2019/docker-boot.png
-[gif]: https://tacsio.github.io/contents/images/2019/docker-boot.gif
+[cover]: https://tacsio.github.io/blog/contents/images/2019/docker-boot.png
+[gif]: https://tacsio.github.io/blog/contents/images/2019/docker-boot.gif
 [Pivotal]: https://spring.io/guides/gs/spring-boot-docker/
 [Docker-MultiStage]: https://docs.docker.com/develop/develop-images/multistage-build/
 	

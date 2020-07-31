@@ -2,7 +2,7 @@
 layout: article
 title: Primeiras Impressões Quarkus Framework
 date: 2020-04-28 23:25:00-0300
-coverPhoto: https://tacsio.github.io/contents/images/2020/quarkus.png
+coverPhoto: https://tacsio.github.io/blog/contents/images/2020/quarkus.png
 ---
 
 O ecossistema Java, desde o release do Java 8, vem numa crescente absurda de renovação. A prova disso é o surgimento de novos projetos, especificações e versões da linguagem em uma velocidade nunca antes vista.
@@ -13,7 +13,7 @@ Um dos projetos interessantes é o [Eclipse MicroProfile](https://projects.eclip
 
 Mas podemos deixar para outro momento uma postagem específica sobre o projeto MicroProfile, nesse post vou tentar deixar as minhas impressões de um outro projeto muito interessante da RedHat, o framework Quarkus.
 
-![Quarkus Framework](https://tacsio.github.io/contents/images/2020/quarkus-logo.png)
+![Quarkus Framework](https://tacsio.github.io/blog/contents/images/2020/quarkus-logo.png)
 
 
 # Quarkus Framework
@@ -284,7 +284,7 @@ Para executar a aplicação basta rodar o comando maven abaixo e se impressionar
 ./mvnw compile quarkus:dev
 ```
 
-![mvn quarkus startup](https://tacsio.github.io/contents/images/2020/mvn-quarkus.png)
+![mvn quarkus startup](https://tacsio.github.io/blog/contents/images/2020/mvn-quarkus.png)
 
 ## **Considerações Finais**
 

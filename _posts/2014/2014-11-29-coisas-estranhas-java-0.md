@@ -2,7 +2,7 @@
 layout: article
 title: Coisas ‘estranhas’ do Java[0]
 date: 2014-11-29 21:00:00-0300
-coverPhoto: https://tacsio.github.io/contents/images/tanoshi-alpha.png
+coverPhoto: https://tacsio.github.io/blog/contents/images/tanoshi-alpha.png
 ---
 
 Inicialmente quero deixar claro que não tenho preferência por linguagem de programação, tenho preferência por paradigma, mas não por linguagem (Ruby, Python e JavaScript.. ~~as modinhas~~ são, de fato, legais de trabalhar, mas eu não diria que “visto a camisa” da linguagem como vejo muita gente fazendo)…
@@ -71,6 +71,6 @@ Bem…. é isto, espero que tenham gostado!
 
 ![tanoshi][tanoshi]
 
-[tanoshi]: https://tacsio.github.io/contents/images/tanoshi-alpha.png
+[tanoshi]: https://tacsio.github.io/blog/contents/images/tanoshi-alpha.png
 [tcl]: https://en.wikipedia.org/wiki/Tcl
 [1]: https://docs.oracle.com/javase/specs/jls/se7/html/jls-5.html
