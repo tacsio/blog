@@ -18,7 +18,7 @@ permalink: /:categories/:year/:title
 baseurl: https://tacsio.github.io
 
 #rss
-url: https://tacsio.github.io
+url: https://tacsio.github.io/blog
 rss_name: feed.xml
 
 # Includes
