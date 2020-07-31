@@ -15,7 +15,7 @@ timezone: America/Recife
 paginateLabel: page
 paginate_path: "page/:num"
 permalink: /:categories/:year/:title
-baseurl: https://tacsio.github.io
+baseurl: https://tacsio.github.io/blog
 
 #rss
 url: https://tacsio.github.io/blog
