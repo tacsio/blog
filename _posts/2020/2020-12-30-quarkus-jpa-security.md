@@ -17,14 +17,14 @@ Uma informação extra, definitivamente existem melhores alternativas para torna
 
 ## Aplicação
 
-Para implementação da nossa API com o básico da segurança valos utilizar as seguintes *extensions*
+Para implementação da nossa API com o básico da segurança vamos utilizar as seguintes *extensions*
 
 - RESTEasy JAX-RS
 - Security JPA *(preview)*
 
-A aplicação base é bem simples, terá 3 *endpoins*
+A aplicação base é bem simples, terá 3 *endpoints*
 
-1. /api/public - *Pode ser acessado sem crendenciais (acesso sem estar autenticado)*
+1. /api/public - *Pode ser acessado sem credenciais (acesso sem estar autenticado)*
 2. /api/admin - *Apenas usuários com **Role** "Admin" tem acesso ao recurso*
 3. /api/user - *Apenas usuários com **Role** "User" tem acesso ao recurso*
 
@@ -222,7 +222,7 @@ Outra abordagem para autenticação de usuários que mantém nosso critério de 
 
 A ideia aqui é submeter um formulário web com as credenciais do usuário para o servidor, que validará as informações e, caso os dados estejam corretos, criará uma sessão compartilhada com o cliente. Esse compartilhamento geralmente é feito através de um cookie com o ID da sessão no servidor (o que gera um problema conhecido quando temos várias 'replicas' do mesmo serviço, sendo necessário ou distribuir os dados da sessão entre os nós, ou 'amarrar' a sessão ao servidor em que o cliente 'caiu' e fez o login - *sticky session*).
 
-Uma das principais diferenças dessa abordagem, em relação ao *HTTP Basic* está na possibilidade de realizar o logout, uma vez que com *HTTP Basic* a unica forma de fazer algo "parecido" com um logout é enviar uma requisição com as credenciais erradas (Naquele modo com os dados da URL) invalidando assim as requisições subsequentes. Já com *Form Based*, como existe uma informação compartilhada entre o Cliente e o Servidor (o session ID) então basta invalidar essa sessão que o usuário estará "deslogado".
+Uma das principais diferenças dessa abordagem, em relação ao *HTTP Basic* está na possibilidade de realizar o logout, uma vez que com *HTTP Basic* a única forma de fazer algo "parecido" com um logout é enviar uma requisição com as credenciais erradas (Naquele modo com os dados da URL) invalidando assim as requisições subsequentes. Já com *Form Based*, como existe uma informação compartilhada entre o Cliente e o Servidor (o session ID) então basta invalidar essa sessão que o usuário estará "deslogado".
 
 Aqui vale o mesmo ponto importante, é mandatório o uso de HTTPs (TLS) na comunicação, uma vez que agora as credencias do usuário são enviadas no corpo da requisição.
 
